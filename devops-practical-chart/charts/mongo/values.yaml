@@ -1,0 +1,21 @@
+mongo:
+  global:
+    # enabled is the master enabled switch. Setting this to true or false
+    # will enable or disable all the components within this chart by default.
+    enabled: true
+    # Used to define custom django.fullname in template.
+    projectName: "mongo"
+    # image sets the repo,tag and pullPolicy of the project
+replicaCount: 1
+
+image:
+  registry: docker.io
+  repository: mongo
+  tag: 4.4.14-focal
+  pullPolicy: IfNotPresent
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 20
+  targetCPU: 60

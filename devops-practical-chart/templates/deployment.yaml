@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: devops-practical
+  name: devops-practical
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     app: devops-practical
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: devops-practical
+    spec:
+      containers:
+      - name: devops-practical
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 3000
+        command: ["npm", "start"]
+        volumeMounts:
+          - mountPath: .:/app
+            name: devops-practical-claim0
+          - mountPath: .:/app/node_modules
+            name: devops-practical-claim1
+#        resources:
+#          requests:
+#            cpu: 200m
+        env:
+        - name: MONGODB_URL
+          valueFrom:
+            configMapKeyRef:
+              key: MONGODB_URL
+              name: env-example
+      volumes:
+        - name: devops-practical-claim0
+          persistentVolumeClaim:
+            claimName: devops-practical-claim0
+        - name: devops-practical-claim1
+          persistentVolumeClaim:
+            claimName: devops-practical-claim1

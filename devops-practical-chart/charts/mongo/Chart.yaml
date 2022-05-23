@@ -1,0 +1,5 @@
+apiVersion: v2
+name: mongo
+version: 1.0.0
+Appversion: 1.11.12
+description: This Chart deploys mongodb

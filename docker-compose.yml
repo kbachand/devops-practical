@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  devops-practical:
+    build:
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm start
+    env_file:
+      - .env.example
+    ports:
+      - 3000:3000
+    networks:
+      - webnet
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: always
+    networks:
+      - webnet
+    volumes:
+      - ./data:/data/db
+
+networks:
+  webnet:
