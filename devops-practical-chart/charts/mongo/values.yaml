@@ -19,3 +19,7 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 20
   targetCPU: 60
+
+rbac:
+  create: true
+  rules: []
