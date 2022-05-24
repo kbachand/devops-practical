@@ -22,5 +22,6 @@ rbac:
   create: true
   rules: []
 
+# Sets the username and password for mongodb. 
 username: "samtheman"
 password: "KSHASAHSHE322323"
