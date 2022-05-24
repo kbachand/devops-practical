@@ -42,6 +42,6 @@ resources: {}
 
 autoscaling:
   enabled: true
-  minReplicas: 2
+  minReplicas: 4
   maxReplicas: 10
   targetCPU: 60
