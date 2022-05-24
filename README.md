@@ -58,7 +58,13 @@ terraform apply
 
 ### Helm 
 
-These commands assume your Kubernetes cluster is up and running and your in the correct directory `/devops-practical/`.
+These commands assume your Kubernetes cluster is up and running and you have created an entry point into your cluster and your in the correct directory `/devops-practical/`.
+
+Create entry point into your cluster (replace YOUR-PROJECT-ID with the project id from your gcp account)
+```
+gcloud container clusters get-credentials devops-practical-prod --region us-east1 --project YOUR-PROJECT-ID
+```
+Install helm chart
 ```
 helm install devops-practical devops-practical-chart
 ```
