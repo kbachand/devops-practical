@@ -21,3 +21,6 @@ autoscaling:
 rbac:
   create: true
   rules: []
+
+username: "samtheman"
+password: "KSHASAHSHE322323"

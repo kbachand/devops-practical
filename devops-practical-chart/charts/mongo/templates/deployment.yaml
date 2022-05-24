@@ -15,8 +15,9 @@ spec:
         app: mongo
     spec:
       containers:
-        - image: mongo
+        - image: "{{ .Values.image.registry}}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           name: mongo
+          imagePullPolicy: "{{ .Values.image.pullPolicy}}"
           volumeMounts:
             - mountPath: /data/db
               name: mongo-claim0
@@ -29,6 +30,9 @@ spec:
             limits:
               cpu: 200m
               memory: 300Mi
+          envFrom:
+            - secretRef:
+                name: mongosecret
       restartPolicy: Always
       volumes:
         - name: mongo-claim0
