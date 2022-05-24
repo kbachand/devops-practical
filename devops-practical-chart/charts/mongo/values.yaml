@@ -6,8 +6,6 @@ mongo:
     # Used to define custom django.fullname in template.
     projectName: "mongo"
     # image sets the repo,tag and pullPolicy of the project
-#replicaCount: 1
-
 image:
   registry: docker.io
   repository: mongo

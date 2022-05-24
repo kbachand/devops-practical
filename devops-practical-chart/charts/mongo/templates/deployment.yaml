@@ -5,7 +5,6 @@ metadata:
     app: mongo
   name: mongo
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: mongo
@@ -25,7 +24,7 @@ spec:
             - containerPort: 27017
           resources:
             requests:
-              cpu: 500m
+              cpu: 100m
       restartPolicy: Always
       volumes:
         - name: mongo-claim0

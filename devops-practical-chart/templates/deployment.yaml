@@ -5,7 +5,6 @@ metadata:
     app: devops-practical
   name: devops-practical
 spec:
-  replicas: 1
   selector:
     matchLabels:
      app: devops-practical
@@ -25,7 +24,7 @@ spec:
         command: ["npm", "start"]
         resources:
           requests:
-            cpu: 500m
+            cpu: 200m
         env:
         - name: MONGODB_URL
           valueFrom:

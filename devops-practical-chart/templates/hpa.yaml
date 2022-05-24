@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "devops-practical-chart.fullname" . }}
+  name: devops-practical
   labels:
-    {{- include "devops-practical-chart.labels" . | nindent 4 }}
+  name: devops-practical
 spec:
   scaleTargetRef:
     apiVersion: apps/v2
     kind: Deployment
-    name: {{ include "devops-practical-chart.fullname" . }}
+    name: devops-practical
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

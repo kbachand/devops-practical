@@ -1,9 +1,6 @@
 # Default values for devops-practical-chart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-
-#replicaCount: 1
-
 image:
   registry: docker.io
   repository: xoibsurferx/devops-practical-final
@@ -45,6 +42,6 @@ resources: {}
 
 autoscaling:
   enabled: true
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 10
   targetCPU: 60
