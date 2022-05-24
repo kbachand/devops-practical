@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   labels:
     app: mongo
@@ -9,8 +9,7 @@ spec:
   selector:
     matchLabels:
       app: mongo
-  strategy:
-    type: Recreate
+  serviceName: mongo
   template:
     metadata:
       labels:
@@ -26,7 +25,7 @@ spec:
             - containerPort: 27017
           resources:
             requests:
-              cpu: 50m
+              cpu: 500m
       restartPolicy: Always
       volumes:
         - name: mongo-claim0
